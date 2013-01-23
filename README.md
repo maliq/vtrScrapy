@@ -1,4 +1,4 @@
-vtrScrapy
-=========
+Scraper Vtr schedules
+=============
 
-Web Scraping of vtr site
+Scrapy module that scrap the vtr page with schedule
