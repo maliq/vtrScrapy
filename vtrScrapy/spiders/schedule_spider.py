@@ -11,26 +11,6 @@ from datetime import date
 
 class ScheduleSpider(BaseSpider):
     name = "schedule"
-	# start_urls = [
-	# "http://televisionvtr.cl/programacion/"
-	#  "http://televisionvtr.cl/index.php?obt=grillacat&canal_tipo=series-peliculas&comuna=Santiago&_=1356290286469"
-	# ,"http://televisionvtr.cl/index.php?obt=grillacat&canal_tipo=cultura&comuna=Santiago&fecha=122512&_=1356388983020"
-	# ,"http://televisionvtr.cl/index.php?obt=grilla&comuna=Santiago&canal_inicio=20&canal_cantidad=10&canal_tipo=series-peliculas&fecha=122512"
-	# ,"http://televisionvtr.cl/index.php?obt=grilla&comuna=Santiago&canal_inicio=20&canal_cantidad=10&canal_tipo=cate"
-	# ,"http://televisionvtr.cl/index.php?obt=grillaDate&fecha=122512&canal_tipo=cate&comuna=Santiago&_=1356388745578"
-	# ,"http://televisionvtr.cl/index.php?obt=grilla&comuna=Santiago&canal_inicio=11&canal_cantidad=10&fecha=122512&canal_tipo=cate"
-	# ,"http://televisionvtr.cl/index.php?obt=minificha&channels=511554111&programs=19671191&starttime=0200&startdate=122512&canal_tipo=peliculas"
-	# ,"http://televisionvtr.cl/index.php?obt=search&search=hola"
-	# ,"http://m.guiatv.vtr.com/"
-        #, "http://televisionvtr.cl/infantiles/"
-        # ,"http://televisionvtr.cl/series/"
-        # ,"http://televisionvtr.cl/peliculas/"
-        # ,"http://televisionvtr.cl/deportes/"
-        # ,"http://televisionvtr.cl/infantiles/"
-        # ,"http://televisionvtr.cl/musica/"
-        # ,"http://televisionvtr.cl/infantiles/"
-        # ]
-
 
     def __init__(self, category=None, gap=10, top=147,comuna='Santiago',channelType='series-peliculas'):
         gap=int(gap)
