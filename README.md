@@ -3,7 +3,7 @@ Scraper Vtr schedules
 
 Scrapy module that scrap the vtr page with schedule
 
-## run spider standalone
+## Schedule spider
 Schedule spider allow scrap vtr epg available in http://televisionvtr.cl/programacion/, the spider scrap the site with many request or one request,
 you can request from channel 1 to 10, 11 to 20, ..., 140 to 147 (gap=10) or all channel from 1 to 147 in one requests (gap=147).
 
@@ -13,8 +13,26 @@ schedule spider parameters:
 * comuna: schedule city where scrap schedule (default = 'Santiago')
 * channelType: channel type (default='series-peliculas')
 
-run spider:
+
+### Run spider standalone
+
     scrapy crawl schedule -a top=3
+
+
+### Run spider in scrapy server
+
+First start scrapy server, in the root vtrScrapy directory run:
+
+        scrapy server
+
+After in other terminal run*:
+
+        curl http://localhost:6800/schedule.json -d project=default -d spider=schedule -d setting=DOWNLOAD_DELAY=2 -d top=3
+
+* this run spider with DOWNLOAD_DELAY=2 and top argument equal 3
+
+
+
 
 
 ## Fill program with external url pages
