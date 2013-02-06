@@ -12,7 +12,7 @@ from datetime import date
 class ScheduleSpider(BaseSpider):
     name = "schedule"
 
-    def __init__(self, category=None, gap=10, top=147,comuna='Santiago',channelType='series-peliculas'):
+    def __init__(self, gap=10, top=147,comuna='Santiago',channelType='series-peliculas'):
         gap=int(gap)
         top=int(top)
         gap = gap if gap<top else top
