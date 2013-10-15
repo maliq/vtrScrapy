@@ -4,3 +4,7 @@
 .scrapy/
 
 dbs/default.db
+
+*.sublime-project
+
+*.sublime-workspace
