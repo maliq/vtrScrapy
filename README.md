@@ -31,14 +31,45 @@ After in other terminal run*:
 
 * this run spider with DOWNLOAD_DELAY=2 and top argument equal 3
 
+## Fields for Program and Schedule
 
+### Program
+
+|	fields 		| type    			| optional	|
+|---------------|-------------------|-----------|
+|_id 		 	| int				|			|
+|name 		 	| string			|			|
+|description	| string			|			|
+|episode		| string			|	true	|
+|director 		| {name:string}		|	true	|
+|actors			| [{name:string}]	|	true	|
+
+
+| Year | Temperature (low) | Temperature (high) |  
+| ---- | ----------------- | -------------------|  
+| 1900 |               -10 |                 25 |  
+| 1910 |               -15 |                 30 |  
+| 1920 |               -10 |                 32 | 
+
+### Schedule
+
+fields 		| type
+----------- | ------------------------  
+chn 		| {cod: int, name: string}
+duration 	| int (mins)
+minificha 	| string (url)
+canal_tipo  | string
+prog        | {cod: int, name: string}
+start		| datetime (YYYY MM DD HH:mm)
 
 
 
 ## Fill program with external url pages
 
 To fill programs with wikipedia url pages:
+
     python fill_wikipedia
 
 To fill program with imdb path:
+
     python fill_imdb
