@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import re
 import json
@@ -13,6 +14,7 @@ class Wikipedia:
     url_article = 'http://%s.wikipedia.org/w/index.php?action=raw&title=%s'
     url_image = 'http://%s.wikipedia.org/w/index.php?title=Special:FilePath&file=%s'
     url_search = 'http://%s.wikipedia.org/w/api.php?action=query&list=search&srsearch=%s&sroffset=%d&srlimit=%d&format=json&srprop=size|wordcount|timestamp'
+    url_search2= 'https://%s.wikipedia.org/w/api.php?action=opensearch&search=%s&limit=%d&namespace=0&format=json'
 
     def __init__(self, lang):
         self.lang = lang
@@ -61,8 +63,8 @@ class Wikipedia:
     def search(self, query, page=1, limit=10):
         offset = (page - 1) * limit
         url = self.url_search % (self.lang, urllib.quote_plus(query), offset, limit)
-        content = self.__fetch(url).read()
         print url
+        content = self.__fetch(url).read()
 
         parsed = json.loads(content)
         search = parsed['query']['search']
@@ -80,22 +82,37 @@ class Wikipedia:
                 # snippet = snippet.replace(' , ', ', ')
                 # snippet = snippet.strip()
 
-                wordcount = article['wordcount']
+                # wordcount = article['wordcount']
 
                 results.append({
                     'title' : title,
                     # 'snippet' : snippet,
-                    'wordcount' : wordcount
+                    # 'wordcount' : wordcount
                 })
 
         # yaml.dump(results, default_style='', default_flow_style=False,
         #     allow_unicode=True)
         return results
 
+    def search2(self, query, limit=10):
+        url = self.url_search2 % (self.lang, urllib.quote_plus(query), limit)
+        print url
+        content = self.__fetch(url).read()
+
+        parsed = json.loads(content)
+        results = []
+
+        if parsed[1]:
+            for article in parsed[1]:
+                results.append({
+                    'title' : article
+                })
+        return results
+
 if __name__ == '__main__':
     wiki = Wikipedia('en')
-    print wiki.article('Ley y orden')
+    print wiki.article('Toy Story')
     # wiki.image('Bono_at_the_2009_Tribeca_Film_Festival.jpg', '640')
-    #print wiki.search('30 Rock')
+    print wiki.search2('101 Dalmatians')
 
     print 'OK'
