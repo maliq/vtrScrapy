@@ -56,6 +56,21 @@ canal_tipo  | string
 prog        | {cod: int, name: string}
 start		| datetime (YYYY MM DD HH:mm)
 
+### IMDB item
+
+fields 	| type		| optional
+--------|-----------|-----
+_id		|	int		|
+genres	|	string	|	true
+cast	|			|	true
+writte	|			|	true
+director|			|	true
+year	| 	int		|
+rating	|	float	|	true
+votes	|			|	true
+title	|	string	|
+kind	| 	string	|
+
 
 
 ## Fill program with external url pages
