@@ -4,6 +4,7 @@
 import pymongo
 import logging
 import sys
+import argparse
 sys.path.append("..")
 from twisted.internet import reactor
 from scrapy.crawler import Crawler
@@ -15,7 +16,7 @@ from scrapy.xlib.pydispatch import dispatcher
 from multiprocessing.queues import Queue
 from crawler_worker import CrawlerWorker
 
-import argparse
+
 
 """
     Class to search in IMDB program and save the result in mongodb.
@@ -59,7 +60,6 @@ class ImdbSearch(object):
         """This method process program in mongodb backend"""
         for program in self.programs.find().limit(self.maxPrograms):
             # title = wiki.search(program['name'].encode('utf-8'))[0]['title']
-
             imdbResultField = 'imdb_results'
             imdbSelectedField = 'imdb_selected'
             if self.overwrite  or not(imdbResultField in program):
@@ -79,15 +79,12 @@ class ImdbSearch(object):
                 logging.info('skiping %s',program['name'])
 
 if __name__ == '__main__':
-    # isearch = ImdbSearch(maxResult=5,overwrite=True)
-    # isearch.process(maxProgramNumber=0)
     parser = argparse.ArgumentParser(description='Fill program with imdb results')
     parser.add_argument('-db','--database', help='Mongo database',required=True)
-    parser.add_argument('-x','--maxResult',help='Max result to fill for program', default = 5)
-    parser.add_argument('-p','--maxPrograms',help='How many programs will fill', default = 0)
+    parser.add_argument('-x','--maxResult',help='Max result to fill for program', default = 5, type=int)
+    parser.add_argument('-p','--maxPrograms',help='How many programs will fill', default = 0, type=int)
     parser.add_argument('-ow','--overwrite',help='If overwrite old results if exists', default=False, action="store_true")
     args = parser.parse_args()
-
 
     isearch = ImdbSearch(mongodb=args.database, maxResult=args.maxResult,
         overwrite=args.overwrite, maxPrograms = args.maxPrograms)
