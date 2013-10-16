@@ -42,9 +42,9 @@ class ImdbLoader(object):
         if self.overwrite or not current_imdb_item:
             ip=ImdbProgram()
             ip['_id']=imdbId
-            ip['title']=m['title']
+            ip['title'] = m['title']
             # ip['cast']= m['cast']
-            m['year']
+            ip['year'] = m['year']
             # m['director']
             # m['writer']
             ip['kind']=m['kind']
