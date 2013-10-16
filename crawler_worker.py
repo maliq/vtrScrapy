@@ -1,8 +1,8 @@
 from scrapy import project, signals
-from scrapy.conf import settings
 from scrapy.crawler import CrawlerProcess
 from scrapy.xlib.pydispatch import dispatcher
 from multiprocessing.queues import Queue
+from scrapy.settings import Settings
 import multiprocessing
 
 class CrawlerWorker(multiprocessing.Process):
@@ -11,7 +11,7 @@ class CrawlerWorker(multiprocessing.Process):
         multiprocessing.Process.__init__(self)
         self.result_queue = result_queue
 
-        self.crawler = CrawlerProcess(settings)
+        self.crawler = CrawlerProcess(Settings())
         if not hasattr(project, 'crawler'):
             self.crawler.install()
         self.crawler.configure()

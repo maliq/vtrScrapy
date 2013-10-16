@@ -64,6 +64,7 @@ To fill programs with wikipedia url pages:
 
     python fill_wikipedia
 
-To fill program with imdb path:
+To fill program with imdb results:
 
-    python fill_imdb
+	cd imdb/
+    python imdbSearch.py -h
