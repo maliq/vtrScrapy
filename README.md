@@ -83,3 +83,8 @@ To fill program with imdb results:
 
 	cd imdb/
     python imdbSearch.py -h
+
+To fill imdb items:
+
+	cd imdb/
+    python imdbLoader.py -h
