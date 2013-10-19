@@ -3,11 +3,18 @@ Scraper Vtr schedules
 
 Scrapy module that scraps the vtr page in http://televisionvtr.cl/programacion/ extracting Channels, Schedules and Programs tv and store this in a mongodb instance.
 
+### Python dependencies
+
+* Scrapy http://scrapy.org/
+* Imdbpy http://imdbpy.sourceforge.net/
+
+Can use pip http://www.pip-installer.org/en/latest/installing.html to install both.
+
 ### Mongodb prerequisite
 
 The scrapy by dedafult store the scraped data in mongodb instance, if you need change this process you can modifiy the default pipeline [http://doc.scrapy.org/en/0.18/topics/item-pipeline.html].
 
-The database is **vtr** and the collectiosn created are: **channels**, **schedules** and **programs**
+The database is **vtr** and the collections created are: **channels**, **schedules** and **programs**
 
 ## Channel spider
 
@@ -71,7 +78,7 @@ start		| datetime (YYYY MM DD HH:mm)
 |actors			| [{name:string}]	|	true	|
 
 
-### Run spiders in scrapy server
+## Run spiders in scrapy server
 
 First start scrapy server, in the root vtrScrapy directory run:
 
