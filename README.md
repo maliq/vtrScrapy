@@ -6,9 +6,12 @@ Scrapy module that scraps the vtr page in http://televisionvtr.cl/programacion/ 
 ### Python dependencies
 
 * Scrapy http://scrapy.org/
-* Imdbpy http://imdbpy.sourceforge.net/
-
+* pymongo
+* Imdbpy http://imdbpy.sourceforge.net
+* zope.interface
 Can use pip http://www.pip-installer.org/en/latest/installing.html to install both.
+
+(can you get in Mac OSX Mountain Lions: *error: Setup script exited with error: command 'clang' failed with exit status 1.* please try installing Command Line Tools of Xcode)
 
 ### Mongodb prerequisite
 
