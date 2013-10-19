@@ -73,7 +73,7 @@ start		| datetime (YYYY MM DD HH:mm)
 
 |	fields 		| type    			| optional	|
 |---------------|-------------------|-----------|
-|_id 		 	| int				|			|
+|cod 		 	| int				|			|
 |name 		 	| string			|			|
 |description	| string			|			|
 |episode		| string			|	true	|
