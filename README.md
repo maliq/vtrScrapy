@@ -114,7 +114,7 @@ To fill imdb items:
 
 fields 	| type		| optional
 --------|-----------|-----
-_id		|	int		|
+cod		|	int		|
 genres	|	string	|	true
 cast	|			|	true
 writte	|			|	true

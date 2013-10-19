@@ -9,7 +9,7 @@ from pymongo import Connection
 from scrapy.item import Item, Field
 
 class ImdbProgram(Item):
-    _id = Field()
+    cod = Field()
     genres = Field()
     cast = Field()
     writter =Field()
@@ -38,10 +38,13 @@ class ImdbLoader(object):
 
     def saveImdbItem(self, imdbId):
         m = self.ia.get_movie(imdbId)
-        current_imdb_item = self.imdbs.find_one({"_id": imdbId})
+        current_imdb_item = self.imdbs.find_one({"cod": imdbId})
         if self.overwrite or not current_imdb_item:
-            ip=ImdbProgram()
-            ip['_id']=imdbId
+            if not current_imdb_item:
+                ip = ImdbProgram()
+            else:
+                ip = current_imdb_item
+            ip['cod']=imdbId
             ip['title'] = m['title']
             # ip['cast']= m['cast']
             ip['year'] = m['year']
@@ -58,7 +61,7 @@ class ImdbLoader(object):
             if not current_imdb_item:
                 self.imdbs.insert(dict(ip))
             else:
-                self.imdbs.update({"_id": imdbId},dict(ip))
+                self.imdbs.update({"cod": imdbId},dict(ip))
         else:
             logging.info('skip imdbId: %s, already exists', imdbId)
 
