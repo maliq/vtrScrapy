@@ -4,10 +4,9 @@ from scrapy.spider import BaseSpider
 from scrapy.http import Request
 from scrapy.selector import HtmlXPathSelector
 from vtrScrapy.items import Schedule,Program
-from vtrScrapy.spiders.minificha_spider import MinifichaSpider
-from vtrScrapy.spiders.ficha_spider import FichaSpider
 from scrapy import log
 from datetime import date
+from bson.objectid import ObjectId
 
 class ScheduleSpider(BaseSpider):
     name = "schedule"
@@ -80,7 +79,7 @@ class ScheduleSpider(BaseSpider):
             else:
                 program['description'] = des
         program['name']= title
-        program['_id'] = prog
+        program['cod'] = prog
         return program
 
     def parseFicha(self, response):
@@ -110,7 +109,7 @@ class ScheduleSpider(BaseSpider):
                 program['web'] = v
             else:
                 log.msg('key "%s" with value "%s" cannot calificate' % (k,v), log.WARNING)
-        program['_id'] = prog
+        program['cod'] = prog
         # horarios= hxs.select('//div[@id="horario"]/table/tbody/tr')
         # items = []
         # for horario in horarios:

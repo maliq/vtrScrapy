@@ -14,7 +14,7 @@ class Channel(Item):
 	number = Field()
 
 class Program(Item):
-	_id = Field()
+	cod = Field()
 	name = Field()
 	description = Field()
 	schedules = Field()
