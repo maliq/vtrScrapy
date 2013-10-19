@@ -7,7 +7,7 @@ from scrapy import log
 class CanalesSpider(BaseSpider):
 	name = "channels"
 
-	def __init__(self, top=10,comuna='Santiago',channelType='series-peliculas'):
+	def __init__(self, comuna='Santiago',channelType='series-peliculas'):
 		# self.start_urls = ['http://televisionvtr.cl/index.php?obt=grilla&comuna=Santiago&canal_inicio=1&canal_cantidad=%s' % top]
 		self.start_urls =['http://televisionvtr.cl/index.php?obt=grilla&canal_tipo=%s&comuna=%s' % (channelType,comuna)]
 
