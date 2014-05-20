@@ -51,6 +51,17 @@ schedule spider parameters:
 * top: max channel number (default = 147, max = 147)
 * comuna: schedule city where scrap schedule (default = 'Santiago')
 * channelType: channel type (default='series-peliculas')
+..* series-peliculas
+..* deportes
+..* infantil
+..* musica
+..* tendencias
+..* cultura
+..* noticias
+..* internacional
+..* adulto
+..* premium
+..* hd
 
 
 ### Run spider standalone
