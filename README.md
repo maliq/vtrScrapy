@@ -24,9 +24,8 @@ The database is **vtr** and the collections created are: **channels**, **schedul
 Channele spider scraps all channels available in the vtr webpage,
 
 
-channel spider parameters:
 * comuna: schedule city where scrap schedule (default = 'Santiago')
-* channelType: channel type (default='series-peliculas')
+channel spider parameter:
 
 ### Channel schema
 
@@ -42,7 +41,7 @@ type        | string
 
 ### Run spider standalone
 
-    scrapy crawl channels -a channelType='Infantil'
+    scrapy crawl channels -a comuna='Santiago'
 
 ## Schedule spider
 Schedule the spider scraps the site to get schedule and programs tv with many request or one request, you can request from channel 1 to 10, 11 to 20, ..., 140 to 147 (gap=10) or all channel from 1 to 147 in one requests (gap=147).
