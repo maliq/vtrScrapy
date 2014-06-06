@@ -94,9 +94,14 @@ start		| datetime (YYYY MM DD HH:mm)
 
 ## Run spiders in scrapy server
 
-First start scrapy server, in the root vtrScrapy directory run:
+First start scrapyd (http://scrapyd.readthedocs.org/en/latest/install.html), in the root vtrScrapy directory run:
 
-        scrapy server
+        scrapyd
+
+Deploy the vtrScrapy in the scrapyd
+
+        scrapy-deploy
+
 
 After in other terminal run* to scraps schedules and programs tv:
 
