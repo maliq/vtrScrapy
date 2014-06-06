@@ -8,7 +8,7 @@ class CanalesSpider(Spider):
 	name = "channels"
 	channelTypeList = ['series-peliculas', 'deportes','infantil','musica','tendencias','cultura','noticias','internacional','adulto','premium','hd']
 
-	def __init__(self, comuna='Santiago'):
+	def __init__(self, comuna='Valparaiso'):
 		# self.start_urls = ['http://televisionvtr.cl/index.php?obt=grilla&comuna=Santiago&canal_inicio=1&canal_cantidad=%s' % top]
 		self.comuna = unicode(comuna)
 		self.start_urls = []

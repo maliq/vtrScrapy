@@ -11,7 +11,7 @@ from bson.objectid import ObjectId
 class ScheduleSpider(Spider):
     name = "schedule"
 
-    def __init__(self, gap=10, top=147,comuna='Santiago',channelType='series-peliculas', **kwargs):
+    def __init__(self, gap=10, top=147,comuna='Valparaiso',channelType='series-peliculas', **kwargs):
         gap=int(gap)
         top=int(top)
         gap = gap if gap<top else top

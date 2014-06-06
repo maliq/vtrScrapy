@@ -24,8 +24,8 @@ The database is **vtr** and the collections created are: **channels**, **schedul
 Channele spider scraps all channels available in the vtr webpage,
 
 
-* comuna: schedule city where scrap schedule (default = 'Santiago')
 channel spider parameter:
+* comuna: schedule city where scrap schedule (default = 'Valparaiso')
 
 ### Channel schema
 
