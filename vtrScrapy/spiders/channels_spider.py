@@ -10,6 +10,7 @@ class CanalesSpider(Spider):
 	def __init__(self, comuna='Santiago',channelType='series-peliculas'):
 		# self.start_urls = ['http://televisionvtr.cl/index.php?obt=grilla&comuna=Santiago&canal_inicio=1&canal_cantidad=%s' % top]
 		self.channelType = unicode(channelType)
+		self.comuna = unicode(comuna)
 		self.start_urls =['http://televisionvtr.cl/index.php?obt=grilla&canal_tipo=%s&comuna=%s' % (channelType,comuna)]
 
 	def parse(self, response):
@@ -26,7 +27,7 @@ class CanalesSpider(Spider):
 			channel['name'] = chan.xpath('img/@alt').extract()[0]
 			channel['logo'] = chan.xpath('img/@src').extract()[0]
 			channel['description'] = chan.xpath('img/@title').extract()[0]
-			channel['number'] = chan.xpath('div/strong/text()').extract()[0]
+			channel['numbers'] = [{self.comuna : chan.xpath('div/strong/text()').extract()[0]}]
 			channel['type'] = self.channelType
 			items.append(channel)
 		log.msg('{0} channels found'.format(len(items)),log.INFO)

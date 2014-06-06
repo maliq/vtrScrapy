@@ -11,7 +11,7 @@ class Channel(Item):
 	name = Field()
 	description = Field()
 	logo = Field()
-	number = Field()
+	numbers = Field()
 	type = Field()
 
 class Program(Item):

@@ -36,7 +36,7 @@ cod 		| int
 name 		| string
 description | string
 logo		| string (url)
-number      | int
+numbers     | [{city:number}]
 type        | string
 
 
