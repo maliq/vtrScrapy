@@ -1,0 +1,5 @@
+---
+applications:
+- name: vtrScrapy
+  memory: 512M
+  command: scrapy server

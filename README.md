@@ -143,3 +143,6 @@ kind	| 	string	|
 
 
 
+### heroku 
+
+buildpack to run in heroku is available in https://github.com/kennethjiang/heroku-buildpack-python-libffi
