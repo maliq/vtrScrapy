@@ -14,8 +14,9 @@ NEWSPIDER_MODULE = 'vtrScrapy.spiders'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'vtrScrapy_scraping (+http://www.toeska.cl)'
 
-ITEM_PIPELINES = [
-    'vtrScrapy.pipelines.StoreMongodbPipeline'
-]
+ITEM_PIPELINES = {
+    'vtrScrapy.pipelines.StoreMongodbPipeline': 800
+}
+
 
 # LOG_LEVEL = 'INFO'
