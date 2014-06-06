@@ -37,6 +37,7 @@ name 		| string
 description | string
 logo		| string (url)
 number      | int
+type        | string
 
 
 ### Run spider standalone

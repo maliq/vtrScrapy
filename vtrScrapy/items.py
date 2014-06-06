@@ -12,6 +12,7 @@ class Channel(Item):
 	description = Field()
 	logo = Field()
 	number = Field()
+	type = Field()
 
 class Program(Item):
 	cod = Field()
