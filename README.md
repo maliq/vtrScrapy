@@ -50,7 +50,7 @@ schedule spider parameters:
 * gap: gap between request (default = 10),
 * top: max channel number (default = 147, max = 147)
 * comuna: schedule city where scrap schedule (default = 'Santiago')
-* channelType: channel type (default='series-peliculas')
+* channelType: channel type (default='all')
 	- series-peliculas
 	- deportes
 	- infantil
@@ -66,7 +66,7 @@ schedule spider parameters:
 
 ### Run spider standalone
 
-    scrapy crawl schedule -a top=3
+    scrapy crawl schedule -a top=3 -a channelType='series-peliculas'
 
 
 ### Schedule Schema

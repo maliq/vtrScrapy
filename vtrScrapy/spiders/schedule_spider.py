@@ -7,11 +7,12 @@ from vtrScrapy.items import Schedule,Program
 from scrapy import log
 from datetime import date
 from bson.objectid import ObjectId
+from vtrScrapy.spiders.channels_spider import CanalesSpider
 
 class ScheduleSpider(Spider):
     name = "schedule"
 
-    def __init__(self, gap=10, top=147,comuna='Valparaiso',channelType='series-peliculas', **kwargs):
+    def __init__(self, gap=10, top=147,comuna='Valparaiso', channelType = '', **kwargs):
         gap=int(gap)
         top=int(top)
         gap = gap if gap<top else top
@@ -20,8 +21,13 @@ class ScheduleSpider(Spider):
         # date_str='{0:02d}{1:02d}{2}'.format(today.month,today.day,str(today.year)[2:])
         self.start_urls=[]
         for start in range(1,top,gap):
-            self.start_urls.append('http://televisionvtr.cl/index.php?obt=grilla&comuna={0}&canal_inicio={1}&canal_cantidad={2}&canal_tipo={3}&fecha={4}'.\
-                format(comuna,str(start),str(start+gap-1),channelType,date_str))
+            for channelTypeItem in CanalesSpider.channelTypeList:
+                if channelType == '':
+                    self.start_urls.append('http://televisionvtr.cl/index.php?obt=grilla&comuna={0}&canal_inicio={1}&canal_cantidad={2}&canal_tipo={3}&fecha={4}'.\
+                    format(comuna,str(start),str(start+gap-1),channelTypeItem,date_str))
+                elif channelType == channelTypeItem:
+                    self.start_urls.append('http://televisionvtr.cl/index.php?obt=grilla&comuna={0}&canal_inicio={1}&canal_cantidad={2}&canal_tipo={3}&fecha={4}'.\
+                    format(comuna,str(start),str(start+gap-1),channelType,date_str))
 
 
     def parse(self, response):
